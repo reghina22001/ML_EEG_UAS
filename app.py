@@ -1,8 +1,6 @@
-"""
-===============================================================================
+"""===================
 STREAMLIT APP - KLASIFIKASI SINYAL EEG
-Deep Learning Model Deployment
-===============================================================================
+Deep Learning Model Deployment===================
 Aplikasi web untuk demo model deep learning klasifikasi sinyal EEG
 Model: CNN1D, LSTM, CNN-LSTM Hybrid, EEGNet
 """
@@ -19,7 +17,7 @@ import io
 import os
 from pathlib import Path
 
-# ==================== KONFIGURASI ====================
+# KONFIGURASI
 st.set_page_config(
     page_title="EEG Signal Classification",
     page_icon="🧠",
@@ -27,14 +25,14 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Konstanta Preprocessing (HARUS SAMA dengan training)
+# Konstanta Preprocessing
 SAMPLING_RATE = 200  # Hz
 LOWCUT = 0.5
 HIGHCUT = 45.0
 EPOCH_LENGTH = 4  # detik
 MODEL_DIR = "models"
 
-# ==================== CUSTOM CSS ====================
+# CUSTOM CSS
 st.markdown("""
 <style>
     .main-header {
@@ -74,7 +72,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ==================== FUNGSI PREPROCESSING ====================
+# FUNGSI PREPROCESSING
 
 @st.cache_data
 def butter_bandpass_filter(data, lowcut, highcut, fs, order=4):
@@ -136,7 +134,7 @@ def preprocess_eeg_data(data):
     return normalized_epochs
 
 
-# ==================== FUNGSI LOAD MODEL (FIXED) ====================
+# FUNGSI LOAD MODEL 
 
 def load_model_robust(model_path):
     """
@@ -146,7 +144,7 @@ def load_model_robust(model_path):
     import warnings
     warnings.filterwarnings('ignore')
     
-    # Strategy 1: Load without compile (PALING AMAN)
+    # Strategy 1: Load without compile 
     try:
         with tf.keras.utils.custom_object_scope({}):
             model = keras.models.load_model(model_path, compile=False)
@@ -222,7 +220,7 @@ def get_available_models():
     return model_names
 
 
-# ==================== FUNGSI VISUALISASI ====================
+# FUNGSI VISUALISASI
 
 def plot_eeg_signal(data, title="EEG Signal", max_channels=5):
     """Plot time series EEG signal"""
@@ -324,8 +322,6 @@ def plot_prediction_confidence(predictions):
     return fig
 
 
-# ==================== MAIN APP ====================
-
 def main():
     # Header
     st.markdown('<div class="main-header">🧠 EEG Signal Classification</div>', unsafe_allow_html=True)
@@ -360,8 +356,6 @@ def main():
     elif page == "ℹ️ About":
         show_about_page()
 
-
-# ==================== PAGE: HOME ====================
 
 def show_home_page():
     st.markdown('<div class="sub-header">Welcome to EEG Signal Classification App</div>', unsafe_allow_html=True)
@@ -408,8 +402,6 @@ def show_home_page():
     4. Click **Predict** to see results!
     """)
 
-
-# ==================== PAGE: DEMO ====================
 
 def show_demo_page():
     st.markdown('<div class="sub-header">Model Demo & Prediction</div>', unsafe_allow_html=True)
@@ -579,8 +571,6 @@ def show_demo_page():
             st.info("Make sure your CSV file has the correct format (samples × channels)")
 
 
-# ==================== PAGE: COMPARISON ====================
-
 def show_comparison_page():
     st.markdown('<div class="sub-header">Model Performance Comparison</div>', unsafe_allow_html=True)
     
@@ -648,8 +638,6 @@ def show_comparison_page():
         3. Place in `assets/` folder
         """)
 
-
-# ==================== PAGE: ABOUT ====================
 
 def show_about_page():
     st.markdown('<div class="sub-header">About This Project</div>', unsafe_allow_html=True)
@@ -720,9 +708,6 @@ def show_about_page():
     - **Year:** 2025
     
     """)
-
-
-# ==================== RUN APP ====================
 
 if __name__ == "__main__":
     main()
