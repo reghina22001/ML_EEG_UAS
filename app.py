@@ -755,26 +755,15 @@ def show_about_page():
     - **Data Split:** 70% train, 15% validation, 15% test
     
     ### 👥 Team
-    - **Developer:** [Your Name]
-    - **Institution:** [Your University]
-    - **Course:** Machine Learning / Deep Learning
-    - **Year:** 2024
+    - **Developer:** Reghina(29), Nabila(71), Tabina(76)
+    - **Institution:** Program Studi Teknik Informatika, Universitas Padjadjaran.
+    - **Course:** Machine Learning
+    - **Year:** 2025
     
     ### 📚 References
     1. Lawhern et al. (2018). "EEGNet: A Compact Convolutional Neural Network for EEG-based BCIs"
     2. Schirrmeister et al. (2017). "Deep learning with convolutional neural networks for EEG decoding"
     
-    ### 📧 Contact
-    For questions or collaboration:
-    - Email: your.email@university.edu
-    - GitHub: github.com/yourusername
-    """)
-    
-    st.markdown("---")
-    st.markdown("### 🙏 Acknowledgments")
-    st.info("""
-    This project was developed as part of a Machine Learning course.
-    Special thanks to the instructors and peers for their guidance and support.
     """)
 
 

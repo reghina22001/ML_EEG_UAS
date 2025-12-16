@@ -1,19 +1,19 @@
-# ==================== CORE ====================
+#  CORE 
 streamlit==1.31.0
 numpy==1.26.4
 pandas==2.1.4
 scipy==1.11.4
 
-# ==================== DEEP LEARNING ====================
+#  DEEP LEARNING 
 tensorflow==2.15.0
 
-# ==================== VISUALIZATION ====================
+#  VISUALIZATION 
 plotly==5.18.0
 matplotlib==3.8.2
 seaborn==0.13.1
 
-# ==================== UTILITIES ====================
+#  UTILITIES 
 Pillow==10.2.0
 
-# ==================== ML ====================
+#  ML 
 scikit-learn==1.3.2
